@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobConnect - Find Your Dream Job</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">JobConnect</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="jobs.html">Jobs</a></li>
+                <li><a href="employer-dashboard.html">For Employers</a></li>
+                <li><a href="candidate-dashboard.html">For Candidates</a></li>
+                <li><a href="login.html" class="btn btn-outline">Login</a></li>
+                <li><a href="login.html?signup=true" class="btn btn-primary">Sign Up</a></li>
+                <li><button id="darkModeToggle" class="btn-icon"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Find Your Dream Job Today</h1>
+                    <p>Connect with thousands of employers and discover opportunities that match your skills and aspirations.</p>
+                    <div class="search-container">
+                        <form id="searchForm" class="search-form">
+                            <div class="search-group">
+                                <i class="fas fa-search"></i>
+                                <input type="text" id="searchInput" placeholder="Job title, keywords, or company">
+                            </div>
+                            <div class="search-group">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <input type="text" id="locationInput" placeholder="City or remote">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Search Jobs</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-jobs">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Featured Jobs</h2>
+                    <a href="jobs.html" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="jobs-grid" id="featuredJobs">
+                    <!-- Jobs will be loaded here via JavaScript -->
+                    <div class="job-card skeleton">
+                        <div class="job-card-header skeleton-text"></div>
+                        <div class="job-card-company skeleton-text"></div>
+                        <div class="job-card-location skeleton-text"></div>
+                        <div class="job-card-description skeleton-text"></div>
+                        <div class="job-card-footer skeleton-text"></div>
+                    </div>
+                    <div class="job-card skeleton">
+                        <div class="job-card-header skeleton-text"></div>
+                        <div class="job-card-company skeleton-text"></div>
+                        <div class="job-card-location skeleton-text"></div>
+                        <div class="job-card-description skeleton-text"></div>
+                        <div class="job-card-footer skeleton-text"></div>
+                    </div>
+                    <div class="job-card skeleton">
+                        <div class="job-card-header skeleton-text"></div>
+                        <div class="job-card-company skeleton-text"></div>
+                        <div class="job-card-location skeleton-text"></div>
+                        <div class="job-card-description skeleton-text"></div>
+                        <div class="job-card-footer skeleton-text"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="categories">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Browse by Category</h2>
+                </div>
+                <div class="categories-grid">
+                    <a href="jobs.html?category=technology" class="category-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Technology</h3>
+                        <p>1,200+ Jobs</p>
+                    </a>
+                    <a href="jobs.html?category=marketing" class="category-card">
+                        <i class="fas fa-bullhorn"></i>
+                        <h3>Marketing</h3>
+                        <p>800+ Jobs</p>
+                    </a>
+                    <a href="jobs.html?category=design" class="category-card">
+                        <i class="fas fa-palette"></i>
+                        <h3>Design</h3>
+                        <p>500+ Jobs</p>
+                    </a>
+                    <a href="jobs.html?category=finance" class="category-card">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Finance</h3>
+                        <p>600+ Jobs</p>
+                    </a>
+                    <a href="jobs.html?category=healthcare" class="category-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Healthcare</h3>
+                        <p>950+ Jobs</p>
+                    </a>
+                    <a href="jobs.html?category=education" class="category-card">
+                        <i class="fas fa-graduation-cap"></i>
+                        <h3>Education</h3>
+                        <p>450+ Jobs</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <div class="container">
+                <div class="section-header">
+                    <h2>How It Works</h2>
+                </div>
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h3>Create an Account</h3>
+                        <p>Sign up and complete your profile with your skills and experience.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h3>Search Jobs</h3>
+                        <p>Browse through thousands of job listings or use our search filters.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h3>Apply with Ease</h3>
+                        <p>Submit your application with just a few clicks.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h3>Get Hired</h3>
+                        <p>Interview with employers and land your dream job.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ready to Take the Next Step in Your Career?</h2>
+                    <p>Join thousands of job seekers who have found their dream jobs through JobConnect.</p>
+                    <div class="cta-buttons">
+                        <a href="login.html?signup=true" class="btn btn-primary">Create Account</a>
+                        <a href="jobs.html" class="btn btn-outline">Browse Jobs</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>JobConnect</h3>
+                    <p>Connecting talented individuals with great opportunities since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>For Job Seekers</h4>
+                    <ul>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="candidate-dashboard.html">Candidate Dashboard</a></li>
+                        <li><a href="#">Career Resources</a></li>
+                        <li><a href="#">Resume Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>For Employers</h4>
+                    <ul>
+                        <li><a href="employer-dashboard.html">Post a Job</a></li>
+                        <li><a href="#">Browse Candidates</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                        <li><a href="#">Recruitment Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Job Street, Employment City</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@jobconnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 JobConnect. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Details - JobConnect</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">JobConnect</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html" class="active">Jobs</a></li>
+                <li><a href="employer-dashboard.html">For Employers</a></li>
+                <li><a href="candidate-dashboard.html">For Candidates</a></li>
+                <li><a href="login.html" class="btn btn-outline">Login</a></li>
+                <li><a href="login.html?signup=true" class="btn btn-primary">Sign Up</a></li>
+                <li><button id="darkModeToggle" class="btn-icon"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="job-detail-section">
+            <div class="container">
+                <div class="job-detail-container">
+                    <div class="job-detail-header" id="jobDetailHeader">
+                        <!-- Job header will be loaded here via JavaScript -->
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text"></div>
+                        <div class="skeleton-text"></div>
+                    </div>
+                    <div class="job-detail-content">
+                        <div class="job-detail-main">
+                            <div class="job-detail-description" id="jobDetailDescription">
+                                <!-- Job description will be loaded here via JavaScript -->
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                            </div>
+                        </div>
+                        <div class="job-detail-sidebar">
+                            <div class="job-detail-apply">
+                                <h3>Interested in this job?</h3>
+                                <button id="applyNowBtn" class="btn btn-primary btn-block">Apply Now</button>
+                                <button id="saveJobBtn" class="btn btn-outline btn-block"><i class="far fa-bookmark"></i> Save Job</button>
+                            </div>
+                            <div class="job-detail-info" id="jobDetailInfo">
+                                <!-- Job info will be loaded here via JavaScript -->
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                            </div>
+                            <div class="job-detail-company" id="jobDetailCompany">
+                                <!-- Company info will be loaded here via JavaScript -->
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                                <div class="skeleton-text"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="similar-jobs">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Similar Jobs</h2>
+                </div>
+                <div class="jobs-grid" id="similarJobs">
+                    <!-- Similar jobs will be loaded here via JavaScript -->
+                    <div class="job-card skeleton">
+                        <div class="job-card-header skeleton-text"></div>
+                        <div class="job-card-company skeleton-text"></div>
+                        <div class="job-card-location skeleton-text"></div>
+                        <div class="job-card-description skeleton-text"></div>
+                        <div class="job-card-footer skeleton-text"></div>
+                    </div>
+                    <div class="job-card skeleton">
+                        <div class="job-card-header skeleton-text"></div>
+                        <div class="job-card-company skeleton-text"></div>
+                        <div class="job-card-location skeleton-text"></div>
+                        <div class="job-card-description skeleton-text"></div>
+                        <div class="job-card-footer skeleton-text"></div>
+                    </div>
+                    <div class="job-card skeleton">
+                        <div class="job-card-header skeleton-text"></div>
+                        <div class="job-card-company skeleton-text"></div>
+                        <div class="job-card-location skeleton-text"></div>
+                        <div class="job-card-description skeleton-text"></div>
+                        <div class="job-card-footer skeleton-text"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Application Modal -->
+    <div class="modal" id="applicationModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Apply for <span id="modalJobTitle">Job Title</span></h2>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="applicationForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name</label>
+                        <input type="text" id="fullName" name="fullName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="resume">Resume</label>
+                        <div class="file-upload">
+                            <input type="file" id="resume" name="resume" accept=".pdf,.doc,.docx">
+                            <label for="resume" class="file-label">
+                                <i class="fas fa-upload"></i> Upload Resume
+                            </label>
+                            <span id="fileName">No file chosen</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="coverLetter">Cover Letter</label>
+                        <textarea id="coverLetter" name="coverLetter" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block">Submit Application</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Application Submitted</h2>
+                <button class="modal-close" id="successModalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Thank you for your application!</h3>
+                    <p>Your application has been successfully submitted. We'll review your application and get back to you soon.</p>
+                    <p>A confirmation email has been sent to your email address.</p>
+                    <button class="btn btn-primary btn-block" id="successModalBtn">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>JobConnect</h3>
+                    <p>Connecting talented individuals with great opportunities since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>For Job Seekers</h4>
+                    <ul>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="candidate-dashboard.html">Candidate Dashboard</a></li>
+                        <li><a href="#">Career Resources</a></li>
+                        <li><a href="#">Resume Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>For Employers</h4>
+                    <ul>
+                        <li><a href="employer-dashboard.html">Post a Job</a></li>
+                        <li><a href="#">Browse Candidates</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                        <li><a href="#">Recruitment Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Job Street, Employment City</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@jobconnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 JobConnect. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/job-detail.js"></script>
+</body>
+</html>

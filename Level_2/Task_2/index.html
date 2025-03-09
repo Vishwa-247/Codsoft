@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuizCraft - Create and Take Quizzes</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>QuizCraft</h1>
+            </div>
+            <nav id="main-nav">
+                <ul id="nav-authenticated" class="hidden">
+                    <li><a href="#" id="nav-home">Home</a></li>
+                    <li><a href="#" id="nav-create">Create Quiz</a></li>
+                    <li><a href="#" id="nav-my-quizzes">My Quizzes</a></li>
+                    <li><a href="#" id="nav-profile">Profile</a></li>
+                    <li><a href="#" id="nav-logout">Logout</a></li>
+                </ul>
+                <ul id="nav-unauthenticated">
+                    <li><a href="#" id="nav-login">Login</a></li>
+                    <li><a href="#" id="nav-register">Register</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Auth Pages -->
+        <section id="login-page" class="page">
+            <div class="container">
+                <div class="auth-form">
+                    <h2>Login to Your Account</h2>
+                    <form id="login-form">
+                        <div class="form-group">
+                            <label for="login-email">Email</label>
+                            <input type="email" id="login-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="login-password">Password</label>
+                            <input type="password" id="login-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                    <p class="auth-switch">Don't have an account? <a href="#" id="switch-to-register">Register</a></p>
+                </div>
+            </div>
+        </section>
+
+        <section id="register-page" class="page hidden">
+            <div class="container">
+                <div class="auth-form">
+                    <h2>Create an Account</h2>
+                    <form id="register-form">
+                        <div class="form-group">
+                            <label for="register-name">Full Name</label>
+                            <input type="text" id="register-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-email">Email</label>
+                            <input type="email" id="register-email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-password">Password</label>
+                            <input type="password" id="register-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="register-confirm-password">Confirm Password</label>
+                            <input type="password" id="register-confirm-password" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </form>
+                    <p class="auth-switch">Already have an account? <a href="#" id="switch-to-login">Login</a></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Page -->
+        <section id="home-page" class="page hidden">
+            <div class="container">
+                <div class="hero">
+                    <h2>Welcome to QuizCraft</h2>
+                    <p>Create, share, and take quizzes on any topic!</p>
+                </div>
+                
+                <div class="browse-quizzes">
+                    <div class="section-header">
+                        <h3>Browse Quizzes</h3>
+                        <div class="search-container">
+                            <input type="text" id="quiz-search" placeholder="Search quizzes...">
+                        </div>
+                    </div>
+                    <div class="quiz-grid" id="quiz-list">
+                        <!-- Quiz cards will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Create Quiz Page -->
+        <section id="create-quiz-page" class="page hidden">
+            <div class="container">
+                <h2>Create a New Quiz</h2>
+                <form id="create-quiz-form">
+                    <div class="form-group">
+                        <label for="quiz-title">Quiz Title</label>
+                        <input type="text" id="quiz-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="quiz-description">Description</label>
+                        <textarea id="quiz-description" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="questions-container">
+                        <h3>Questions</h3>
+                        <div id="questions-list">
+                            <!-- Question forms will be added here -->
+                        </div>
+                        <button type="button" id="add-question" class="btn btn-secondary">Add Question</button>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save Quiz</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- My Quizzes Page -->
+        <section id="my-quizzes-page" class="page hidden">
+            <div class="container">
+                <h2>My Quizzes</h2>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="created">Created</button>
+                    <button class="tab-btn" data-tab="taken">Taken</button>
+                </div>
+                
+                <div class="tab-content active" id="created-quizzes">
+                    <div class="quiz-grid" id="created-quiz-list">
+                        <!-- Created quizzes will be inserted here -->
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="taken-quizzes">
+                    <div class="quiz-results" id="taken-quiz-list">
+                        <!-- Taken quizzes will be inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Take Quiz Page -->
+        <section id="take-quiz-page" class="page hidden">
+            <div class="container">
+                <div id="quiz-header">
+                    <h2 id="quiz-title-display"></h2>
+                    <p id="quiz-description-display"></p>
+                </div>
+                
+                <div id="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <p><span id="current-question">1</span> of <span id="total-questions">10</span></p>
+                </div>
+                
+                <div id="quiz-content">
+                    <!-- Questions will be displayed here -->
+                </div>
+                
+                <div class="quiz-navigation">
+                    <button id="prev-question" class="btn btn-secondary">Previous</button>
+                    <button id="next-question" class="btn btn-primary">Next</button>
+                    <button id="submit-quiz" class="btn btn-success hidden">Submit Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quiz Results Page -->
+        <section id="quiz-results-page" class="page hidden">
+            <div class="container">
+                <div class="results-header">
+                    <h2>Quiz Results</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="score-percentage">0%</span>
+                        </div>
+                        <p>You scored <span id="correct-answers">0</span> out of <span id="total-questions-results">0</span></p>
+                    </div>
+                </div>
+                
+                <div class="results-breakdown">
+                    <h3>Question Breakdown</h3>
+                    <div id="questions-breakdown">
+                        <!-- Question results will be displayed here -->
+                    </div>
+                </div>
+                
+                <div class="results-actions">
+                    <button id="return-home" class="btn btn-primary">Return to Home</button>
+                    <button id="retry-quiz" class="btn btn-secondary">Retry Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Profile Page -->
+        <section id="profile-page" class="page hidden">
+            <div class="container">
+                <div class="profile-header">
+                    <h2>Your Profile</h2>
+                </div>
+                
+                <div class="profile-content">
+                    <div class="profile-info">
+                        <h3>Account Information</h3>
+                        <p><strong>Name:</strong> <span id="profile-name"></span></p>
+                        <p><strong>Email:</strong> <span id="profile-email"></span></p>
+                        <p><strong>Quizzes Created:</strong> <span id="quizzes-created-count">0</span></p>
+                        <p><strong>Quizzes Taken:</strong> <span id="quizzes-taken-count">0</span></p>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <h3>Your Statistics</h3>
+                        <div class="stat-item">
+                            <span class="stat-label">Average Score</span>
+                            <span class="stat-value" id="average-score">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Best Score</span>
+                            <span class="stat-value" id="best-score">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 QuizCraft. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

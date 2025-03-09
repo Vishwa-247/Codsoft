@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Listings - JobConnect</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">JobConnect</a>
+            </div>
+            <div class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="jobs.html" class="active">Jobs</a></li>
+                <li><a href="employer-dashboard.html">For Employers</a></li>
+                <li><a href="candidate-dashboard.html">For Candidates</a></li>
+                <li><a href="login.html" class="btn btn-outline">Login</a></li>
+                <li><a href="login.html?signup=true" class="btn btn-primary">Sign Up</a></li>
+                <li><button id="darkModeToggle" class="btn-icon"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>Find Your Perfect Job</h1>
+                <p>Browse through thousands of job opportunities</p>
+            </div>
+        </section>
+
+        <section class="jobs-section">
+            <div class="container">
+                <div class="jobs-container">
+                    <div class="filters-sidebar">
+                        <div class="filter-group">
+                            <h3>Search</h3>
+                            <div class="search-box">
+                                <input type="text" id="jobSearchInput" placeholder="Job title or keyword">
+                                <button id="searchButton"><i class="fas fa-search"></i></button>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Location</h3>
+                            <div class="search-box">
+                                <input type="text" id="locationFilter" placeholder="City or remote">
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Job Type</h3>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="jobType" value="Full-time"> Full-time</label>
+                                <label><input type="checkbox" name="jobType" value="Part-time"> Part-time</label>
+                                <label><input type="checkbox" name="jobType" value="Contract"> Contract</label>
+                                <label><input type="checkbox" name="jobType" value="Remote"> Remote</label>
+                                <label><input type="checkbox" name="jobType" value="Internship"> Internship</label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Experience Level</h3>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="experience" value="Entry Level"> Entry Level</label>
+                                <label><input type="checkbox" name="experience" value="Mid Level"> Mid Level</label>
+                                <label><input type="checkbox" name="experience" value="Senior Level"> Senior Level</label>
+                                <label><input type="checkbox" name="experience" value="Executive"> Executive</label>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Salary Range</h3>
+                            <div class="range-slider">
+                                <input type="range" id="salaryRange" min="0" max="200000" step="10000" value="100000">
+                                <div class="range-values">
+                                    <span>$0</span>
+                                    <span id="salaryValue">$100,000</span>
+                                    <span>$200,000+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-group">
+                            <h3>Categories</h3>
+                            <div class="checkbox-group">
+                                <label><input type="checkbox" name="category" value="Technology"> Technology</label>
+                                <label><input type="checkbox" name="category" value="Marketing"> Marketing</label>
+                                <label><input type="checkbox" name="category" value="Design"> Design</label>
+                                <label><input type="checkbox" name="category" value="Finance"> Finance</label>
+                                <label><input type="checkbox" name="category" value="Healthcare"> Healthcare</label>
+                                <label><input type="checkbox" name="category" value="Education"> Education</label>
+                            </div>
+                        </div>
+                        <button id="clearFilters" class="btn btn-outline btn-block">Clear Filters</button>
+                    </div>
+                    <div class="jobs-list-container">
+                        <div class="jobs-header">
+                            <div class="jobs-count" id="jobsCount">Showing 0 jobs</div>
+                            <div class="jobs-sort">
+                                <label for="sortBy">Sort by:</label>
+                                <select id="sortBy">
+                                    <option value="relevance">Relevance</option>
+                                    <option value="date">Date Posted</option>
+                                    <option value="salary">Salary</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="jobs-list" id="jobsList">
+                            <!-- Jobs will be loaded here via JavaScript -->
+                            <div class="job-card skeleton">
+                                <div class="job-card-header skeleton-text"></div>
+                                <div class="job-card-company skeleton-text"></div>
+                                <div class="job-card-location skeleton-text"></div>
+                                <div class="job-card-description skeleton-text"></div>
+                                <div class="job-card-footer skeleton-text"></div>
+                            </div>
+                            <div class="job-card skeleton">
+                                <div class="job-card-header skeleton-text"></div>
+                                <div class="job-card-company skeleton-text"></div>
+                                <div class="job-card-location skeleton-text"></div>
+                                <div class="job-card-description skeleton-text"></div>
+                                <div class="job-card-footer skeleton-text"></div>
+                            </div>
+                            <div class="job-card skeleton">
+                                <div class="job-card-header skeleton-text"></div>
+                                <div class="job-card-company skeleton-text"></div>
+                                <div class="job-card-location skeleton-text"></div>
+                                <div class="job-card-description skeleton-text"></div>
+                                <div class="job-card-footer skeleton-text"></div>
+                            </div>
+                        </div>
+                        <div class="pagination" id="pagination">
+                            <!-- Pagination will be added here via JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>JobConnect</h3>
+                    <p>Connecting talented individuals with great opportunities since 2023.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>For Job Seekers</h4>
+                    <ul>
+                        <li><a href="jobs.html">Browse Jobs</a></li>
+                        <li><a href="candidate-dashboard.html">Candidate Dashboard</a></li>
+                        <li><a href="#">Career Resources</a></li>
+                        <li><a href="#">Resume Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>For Employers</h4>
+                    <ul>
+                        <li><a href="employer-dashboard.html">Post a Job</a></li>
+                        <li><a href="#">Browse Candidates</a></li>
+                        <li><a href="#">Pricing Plans</a></li>
+                        <li><a href="#">Recruitment Solutions</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Job Street, Employment City</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                        <li><i class="fas fa-envelope"></i> info@jobconnect.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 JobConnect. All rights reserved.</p>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/jobs.js"></script>
+</body>
+</html>
